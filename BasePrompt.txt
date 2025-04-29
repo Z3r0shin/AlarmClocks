@@ -1,0 +1,64 @@
+I want to make an alarm clock that has fm radio, bluetooth speaker, sd card and an lcd to control it all with its touchscreen.
+
+To resume the hardware part, I have :
+an ESP32 wroom
+an ili9341 with an xpt2046 touch controller
+a max98357
+a micro sd spi module
+a RDA5807M
+
+the ili9341 is connected to the esp32 like this:
+VCC to 5v
+GND to ground
+CS to G15
+Reset to G4
+DC to G2
+SDI(MOSI) to G23
+SCK to G18
+LCD to 3.3v
+MISO is unused
+Touch interface MOSI to G23
+Touch interface CS to G17
+Touch interface SCK to G18
+Touch interface Data Out to G19
+
+For the MAX98357 :
+LRC to G25
+BCLK to G26
+DIN to G27
+VIN to 3.3v
+GND to ground
+
+For the RDA5807M :
+ROUT to G34 (its an ADC1 pin making it the best)
+VCC to 3.3v
+GND to ground
+FMIN to an external 75cm antenna
+SCLK to G22
+SDIO to G21
+
+for the micro sd module :
+3.3v to 3.3v
+GND to ground
+MOSI to G23
+MISO to G19
+CS is G5
+CLK is G18 except if it interferes with the others on the same pin
+
+The sd card module will only serve as a small storage/swap.
+
+All audio output should use the MAX98357 I2S interface, wether its the radio, the sd card, the alarm clock or the bluetooth speaker. If the audio is analogue, use the ESP32's ADC1 channel to transform that signal to digital to then output is to the I2S to the MAX98357.
+
+Its going to be written in arduino btw.
+
+The libraries that I think we can use are the following :
+audio_tools
+ESP32_A2DP
+pu2clr RDA5807
+TFT_eSPI
+
+All 5 of them have been added in the chat files for you. If there are other libraries that you think would be relevant, do not hesitate to add them.
+
+Let's start with something simple and then we will add on the wanted features later.
+
+I want you to make a sketch taht will play the radio. It should take the output of the rda5807, turn it into digital signal, output it to the max98357 in i2s form so i can hear radio. don't forget the pins already determined before and don't forget to add the serial commands to control the radio please.
