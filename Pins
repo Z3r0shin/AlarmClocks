@@ -1,0 +1,43 @@
+To resume the hardware part, I have :
+an ESP32 wroom
+an ili9341 with an xpt2046 touch controller
+a max98357
+a micro sd spi module
+a RDA5807M
+
+the ili9341 is connected to the esp32 like this:
+VCC to 5v
+GND to ground
+CS to G15
+Reset to G4
+DC to G2
+SDI(MOSI) to G23
+SCK to G18
+LCD to 3.3v
+MISO is unused
+Touch interface MOSI to G23
+Touch interface CS to G17
+Touch interface SCK to G18
+Touch interface Data Out to G19
+
+For the MAX98357 :
+LRC to G25
+BCLK to G26
+DIN to G27
+VIN to 3.3v
+GND to ground
+
+For the RDA5807M :
+ROUT to G34 (its an ADC1 pin making it the best)
+VCC to 3.3v
+GND to ground
+FMIN to an external 75cm antenna
+SCLK to G22
+SDIO to G21
+
+for the micro sd module :
+3.3v to 3.3v
+GND to ground
+MOSI to the same MOSI as the lcd and touch interface MISO,
+CS is G5
+CLK is G18 except if it interferes with the others on the same pin
