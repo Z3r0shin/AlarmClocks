@@ -38,6 +38,7 @@ SDIO to G21
 for the micro sd module :
 3.3v to 3.3v
 GND to ground
-MOSI to the same MOSI as the lcd and touch interface MISO,
+MOSI to G23
+MISO to G19
 CS is G5
 CLK is G18 except if it interferes with the others on the same pin
