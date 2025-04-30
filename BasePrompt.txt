@@ -46,7 +46,7 @@ CLK is G18 except if it interferes with the others on the same pin
 
 The sd card module will only serve as a small storage/swap.
 
-All audio output should use the MAX98357 I2S interface, wether its the radio, the sd card, the alarm clock or the bluetooth speaker. If the audio is analogue, use the ESP32's ADC1 channel to transform that signal to digital to then output is to the I2S to the MAX98357.
+All audio output should use the MAX98357 I2S interface, wether its the radio, the sd card, the alarm clock or the bluetooth speaker.
 
 Its going to be written in arduino btw.
 
